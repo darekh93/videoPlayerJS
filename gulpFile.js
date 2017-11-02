@@ -15,6 +15,7 @@ var inject = require('gulp-inject');
 var spritesmith = require('gulp.spritesmith');
 var del = require('del');
 var color = require('gulp-color');
+const babel = require('gulp-babel');
 
 var config = {
     public: 'public/',
@@ -33,9 +34,6 @@ var config = {
     jsOut: 'public/js/',
     jsConcatFiles: [
         'node_modules/jquery/dist/jquery.min.js',
-        'node_modules/fullpage.js/vendors/scrolloverflow.js',
-        'node_modules/fullpage.js/dist/jquery.fullpage.js',
-        'node_modules/perfect-scrollbar/dist/js/perfect-scrollbar.jquery.js',
         'src/js/scripts.js'
     ],
     imgOut: 'public/img/',
@@ -112,7 +110,12 @@ gulp.task('img', function() {
 gulp.task('js', function() {
     return gulp.src(config.jsConcatFiles)
         .pipe(jsvalidate())
+        .pipe(sourcemaps.init())
+        .pipe(babel({
+            presets: ['env']
+        }))
         .pipe(concat('scripts.js'))
+        .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest(config.jsOut))
         .pipe(browserSync.stream());
 });
