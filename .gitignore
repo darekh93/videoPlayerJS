@@ -1,0 +1,15 @@
+### Miscellaneous
+.DS_Store
+Thumbs.db
+*~
+
+
+### IDE
+.idea/
+.idea/*
+
+*/.sass-cache/
+node_modules/
+node_modules/*
+
+public/
