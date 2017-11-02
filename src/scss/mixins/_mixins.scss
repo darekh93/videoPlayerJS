@@ -1,0 +1,75 @@
+@import
+'mixins';
+
+@mixin responsive-font($responsive, $min, $max: false, $fallback: false) {
+  $responsive-unitless: $responsive / ($responsive - $responsive + 1);
+  $dimension: if(unit($responsive) == 'vh', 'height', 'width');
+  $min-breakpoint: $min / $responsive-unitless * 100;
+
+  @media (max-#{$dimension}: #{$min-breakpoint}) {
+    font-size: $min;
+  }
+
+  @if $max {
+    $max-breakpoint: $max / $responsive-unitless * 100;
+
+    @media (min-#{$dimension}: #{$max-breakpoint}) {
+      font-size: $max;
+    }
+  }
+
+  @if $fallback {
+    font-size: $fallback;
+  }
+
+  font-size: $responsive;
+}
+
+
+//RWD
+$screen--xs:                  479px;
+$screen--sm:                  767px;
+$screen--md:                  991px;
+$screen--lg:                  1199px;
+$screen-height--lg:           899px;
+
+@mixin media-xs() {
+  @media (max-width: $screen--xs) {
+    @content;
+  }
+}
+@mixin media-sm() {
+  @media (max-width: $screen--sm) {
+    @content;
+  }
+}
+@mixin media-md() {
+  @media (max-width: $screen--md) {
+    @content;
+  }
+}
+@mixin media-lg() {
+  @media (max-width: $screen--lg) {
+    @content;
+  }
+}
+
+@mixin media-height-lg() {
+  @media (max-height: $screen-height--lg) {
+    @content;
+  }
+}
+
+//fonts
+@mixin font($name, $path, $font-weight){
+  @font-face {
+    font-family: $name;
+    src: url($path + '.eot');
+    src: url($path + '.eot?#iefix') format('embedded-opentype'),
+    url($path + '.woff2') format('woff2'),
+    url($path + '.woff') format('woff'),
+    url($path + '.svg#' + $name) format('svg');
+    font-weight: $font-weight;
+    font-style: normal;
+  }
+}
