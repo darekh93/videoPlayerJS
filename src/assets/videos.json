@@ -1,0 +1,22 @@
+[
+  {
+    "id": 0,
+    "name": "SampleVideo_1.mp4",
+    "link": "http://dariuszhebda.pl/video/SampleVideo_1.mp4"
+  },
+  {
+    "id": 1,
+    "name": "SampleVideo_2.mp4",
+    "link": "http://dariuszhebda.pl/video/SampleVideo_2.mp4"
+  },
+  {
+    "id": 2,
+    "name": "SampleVideo_3.mp4",
+    "link": "http://dariuszhebda.pl/video/SampleVideo_3.mp4"
+  },
+  {
+    "id": 3,
+    "name": "SampleVideo_4.mp4",
+    "link": "http://dariuszhebda.pl/video/SampleVideo_4.mp4"
+  }
+]

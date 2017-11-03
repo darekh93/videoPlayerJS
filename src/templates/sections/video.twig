@@ -1,3 +1,30 @@
 <section>
-    sekcja video
+    <div class="player">
+        <div class="player__name">
+            SampleVideo_1.mp4
+        </div>
+
+        <video class="player__video viewer" poster="http://www.winter.ae/images/videoposter.jpg">
+            <source class="viewer__source" src="http://dariuszhebda.pl/video/SampleVideo_1.mp4" type="video/mp4" data-index="0">
+        </video>
+
+        <div class="player__controls">
+            <div class="progress">
+                <div class="progress__filled"></div>
+            </div>
+            <button class="player__button toggle" title="Toggle Play">►</button>
+            <button class="player__button stop" title="Pause">&#9632</button>
+            <input type="range" name="volume" class="player__slider" min="0" max="1" step="0.05" value="1">
+            <input type="range" name="playbackRate" class="player__slider" min="0.5" max="2" step="0.1" value="1">
+            <button data-skip="-5" class="player__button">« -5s</button>
+            <button data-skip="5" class="player__button">5s »</button>
+            <button class="player__button fullScreen">[ ]</button>
+        </div>
+    </div>
+
+    <aside>
+        <ul class="playlist">
+        </ul>
+    </aside>
+
 </section>

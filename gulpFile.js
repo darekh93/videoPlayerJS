@@ -49,14 +49,14 @@ var config = {
 };
 
 gulp.task('fonts', function () {
-    return gulp.src('src/fonts/**/*.{ttf,woff,woff2,eof,svg}')
-        .pipe(gulp.dest('public/fonts'))
+    return gulp.src('src/assets/*')
+        .pipe(gulp.dest('public/assets'))
 });
 
 gulp.task('twig', function() {
     return gulp.src(config.twigIn)
         .pipe(twig())
-        .pipe(inject(gulp.src(config.cssOut + config.css, {read: false}), {
+        .pipe(inject(gulp.src(config.cssOut + config.css, {read: true}), {
             ignorePath : config.public,
             addRootSlash: false}))
 
