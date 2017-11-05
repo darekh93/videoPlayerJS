@@ -1,3 +1,6 @@
+var DH = DH || {};
+DH.Player = function () {
+
 const player = document.querySelector('.player');
 const video = player.querySelector('.viewer');
 const progress = player.querySelector('.progress');
@@ -11,7 +14,8 @@ const videoName = player.querySelector('.player__name');
 const playlist = document.querySelector('.playlist');
 
 const videos = [];
-const url = './assets/videos.json';
+const currentUrl = window.location.href;
+const url = currentUrl + '/assets/videos.json';
 
 function togglePlay() {
     const method = video.paused ? 'play' : 'pause';
@@ -159,3 +163,5 @@ progress.addEventListener('mousemove', () => {
 });
 progress.addEventListener('mousedown', () => mousedown = true);
 progress.addEventListener('mouseup', () => mousedown = false);
+
+}();

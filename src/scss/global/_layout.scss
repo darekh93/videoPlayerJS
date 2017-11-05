@@ -40,6 +40,10 @@ section {
   }
   .player__video {
     width: 100%;
+    min-height: 368px;
+    @include media-md {
+      min-height: 0;
+    }
   }
   .player__name {
     font-size: 20px;
